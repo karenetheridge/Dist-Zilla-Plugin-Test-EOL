@@ -1,6 +1,8 @@
 Revision history for {{$dist->name}}
 
 {{$NEXT}}
+        - Dist::Zilla::Plugin::EOLTests and Dist::Zilla::Plugin::Test::EOL are
+          now combined into one distribution, Dist-Zilla-Plugin-Test-EOL
 
 0.12      2014-04-10
 	- readd Test::EOL prereq that was accidentally removed when moving to
