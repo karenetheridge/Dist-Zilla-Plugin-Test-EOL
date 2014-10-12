@@ -4,6 +4,8 @@ package Dist::Zilla::Plugin::EOLTests;
 use Moose;
 use namespace::autoclean;
 
+# VERSION
+
 extends 'Dist::Zilla::Plugin::InlineFiles';
 with 'Dist::Zilla::Role::TextTemplate';
 
