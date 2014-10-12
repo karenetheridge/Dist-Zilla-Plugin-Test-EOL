@@ -10,6 +10,7 @@ use namespace::autoclean;
 with
     'Dist::Zilla::Role::FileGatherer',
     'Dist::Zilla::Role::TextTemplate',
+    'Dist::Zilla::Role::PrereqSource',
 ;
 
 has trailing_whitespace => (
@@ -47,6 +48,19 @@ sub gather_files
     return;
 }
 
+sub register_prereqs
+{
+    my $self = shift;
+    $self->zilla->register_prereqs(
+        {
+            type  => 'requires',
+            phase => 'develop',
+        },
+        'Test::More' => 0,
+        'Test::EOL' => 0,
+    );
+}
+
 __PACKAGE__->meta->make_immutable;
 
 1;
@@ -81,7 +95,7 @@ the end of the lines (also known as "trailing space").
 
 The filename of the test to add - defaults to F<xt/author/test-eol.t>.
 
-=for Pod::Coverage gather_files
+=for Pod::Coverage gather_files register_prereqs
 
 =head1 ACKNOWLEDGMENTS
 

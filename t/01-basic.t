@@ -38,7 +38,21 @@ my $content = $file->slurp_utf8;
 unlike($content, qr/[^\S\n]\n/m, 'no trailing whitespace in generated test');
 unlike($content, qr/\t/m, 'no tabs in generated test');
 
-# TODO: check distmeta
+cmp_deeply(
+    $tzil->distmeta,
+    superhashof({
+        prereqs => {
+            develop => {
+                requires => {
+                    'Test::More' => '0',
+                    'Test::EOL' => '0',
+                },
+            },
+        },
+        # TODO: x_Dist_Zilla
+    }),
+    'prereqs are properly injected for the develop phase',
+) or diag 'got distmeta: ', explain $tzil->distmeta;
 
 my $files_tested;
 
