@@ -1,12 +1,16 @@
 package Dist::Zilla::Plugin::Test::EOL;
 use Moose;
+use Sub::Exporter::ForMethods 'method_installer';
+use Data::Section 0.004 # fixed header_re
+    { installer => method_installer }, '-setup';
 use namespace::autoclean;
 
 # VERSION
 
-extends 'Dist::Zilla::Plugin::InlineFiles';
-with 'Dist::Zilla::Role::TextTemplate';
-
+with
+    'Dist::Zilla::Role::FileGatherer',
+    'Dist::Zilla::Role::TextTemplate',
+;
 
 has trailing_whitespace => (
 	 is      => 'ro',
@@ -14,23 +18,34 @@ has trailing_whitespace => (
 	 default => 1,
 );
 
-around add_file => sub {
-	 my ($orig, $self, $file) = @_;
-	 return $self->$orig(
-		  Dist::Zilla::File::InMemory->new({
-				name    => $file->name,
-				content => $self->fill_in_string(
-					$file->content,
-					{
-						name    => __PACKAGE__,
-						version => __PACKAGE__->VERSION
-							|| 'bootstrapped version',
-						trailing_ws => \$self->trailing_whitespace
-					},
-				),
-		  }),
-	 );
-};
+has filename => (
+    is => 'ro', isa => 'Str',
+    lazy => 1,
+    default => sub { return 'xt/author/test-eol.t' },
+);
+
+sub gather_files
+{
+    my $self = shift;
+
+    require Dist::Zilla::File::InMemory;
+
+    $self->add_file(
+        Dist::Zilla::File::InMemory->new(
+            name => $self->filename,
+            content => $self->fill_in_string(
+                ${$self->section_data('__TEST__')},
+                {
+                    name    => __PACKAGE__,
+                    version => __PACKAGE__->VERSION
+                               || 'bootstrapped version',
+                    trailing_ws => \$self->trailing_whitespace
+                },
+            ),
+        )
+    );
+    return;
+}
 
 __PACKAGE__->meta->make_immutable;
 
@@ -62,6 +77,12 @@ L<Test::EOL/all_perl_files_ok>. It defaults to C<1>.
 What this option is going to do is test for the lack of trailing whitespace at
 the end of the lines (also known as "trailing space").
 
+=head2 C<filename>
+
+The filename of the test to add - defaults to F<xt/author/test-eol.t>.
+
+=for Pod::Coverage gather_files
+
 =head1 ACKNOWLEDGMENTS
 
 This module is a fork of L<Dist::Zilla::Plugin::EOLTests> and was originally
@@ -72,7 +93,7 @@ be Author tests.
 =cut
 
 __DATA__
-___[ xt/author/test-eol.t ]___
+___[ __TEST__ ]___
 use strict;
 use warnings;
 use Test::More;

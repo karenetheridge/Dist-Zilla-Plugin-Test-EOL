@@ -6,8 +6,7 @@ use namespace::autoclean;
 
 # VERSION
 
-extends 'Dist::Zilla::Plugin::InlineFiles';
-with 'Dist::Zilla::Role::TextTemplate';
+extends 'Dist::Zilla::Plugin::Test::EOL';
 
 =head1 DESCRIPTION
 
@@ -26,36 +25,10 @@ L<Test::EOL/all_perl_files_ok>. It defaults to C<1>.
 
 =cut
 
-has trailing_whitespace => (
-    is      => 'ro',
-    isa     => 'Bool',
-    default => 1,
+has '+filename' => (
+    default => sub { return 'xt/release/eol.t' },
 );
-
-around add_file => sub {
-    my ($orig, $self, $file) = @_;
-    return $self->$orig(
-        Dist::Zilla::File::InMemory->new({
-            name    => $file->name,
-            content => $self->fill_in_string(
-                $file->content,
-                { trailing_ws => \$self->trailing_whitespace },
-            ),
-        }),
-    );
-};
 
 __PACKAGE__->meta->make_immutable;
 
 1;
-
-__DATA__
-___[ xt/release/eol.t ]___
-use strict;
-use warnings;
-use Test::More;
-
-eval 'use Test::EOL';
-plan skip_all => 'Test::EOL required' if $@;
-
-all_perl_files_ok({ trailing_whitespace => {{ $trailing_ws }} });
