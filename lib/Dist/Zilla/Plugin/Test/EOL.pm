@@ -49,7 +49,11 @@ the following files:
 * xt/author/eol.t
 a standard Test::EOL test
 
-=attr trailing_whitespace
+=head1 CONFIGURATION OPTIONS
+
+This plugin accepts the following options:
+
+=head2 C<trailing_whitespace>
 
 If this option is set to a true value,
 C<< { trailing_whitespace => 1 } >> will be passed to
