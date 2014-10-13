@@ -1,3 +1,5 @@
+use strict;
+use warnings;
 package Dist::Zilla::Plugin::EOLTests;
 # ABSTRACT: Release tests making sure correct line endings are used
 

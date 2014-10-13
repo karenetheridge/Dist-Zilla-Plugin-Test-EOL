@@ -1,11 +1,12 @@
+use strict;
+use warnings;
 package Dist::Zilla::Plugin::Test::EOL;
+
 use Moose;
 use Sub::Exporter::ForMethods 'method_installer';
 use Data::Section 0.004 # fixed header_re
     { installer => method_installer }, '-setup';
 use namespace::autoclean;
-
-# VERSION
 
 with
     'Dist::Zilla::Role::FileGatherer',
