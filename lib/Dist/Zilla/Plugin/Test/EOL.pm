@@ -15,9 +15,9 @@ with
 ;
 
 has trailing_whitespace => (
-	 is      => 'ro',
-	 isa     => 'Bool',
-	 default => 1,
+    is      => 'ro',
+    isa     => 'Bool',
+    default => 1,
 );
 
 has filename => (
