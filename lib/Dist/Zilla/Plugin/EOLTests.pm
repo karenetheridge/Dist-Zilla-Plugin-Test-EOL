@@ -6,8 +6,6 @@ package Dist::Zilla::Plugin::EOLTests;
 use Moose;
 use namespace::autoclean;
 
-# VERSION
-
 extends 'Dist::Zilla::Plugin::Test::EOL';
 
 =head1 DESCRIPTION
