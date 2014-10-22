@@ -31,7 +31,7 @@ $tzil->chrome->logger->set_debug(1);
 $tzil->build;
 
 my $build_dir = path($tzil->tempdir)->child('build');
-my $file = $build_dir->child(qw(xt author test-eol.t));
+my $file = $build_dir->child(qw(xt author eol.t));
 ok( -e $file, $file . ' created');
 
 my $content = $file->slurp_utf8;

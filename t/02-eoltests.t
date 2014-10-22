@@ -7,7 +7,7 @@ use Path::Tiny;
 my $code = path('t', '01-basic.t')->slurp_utf8;
 
 $code =~ s/Test::EOL(?!'\s*=>)/EOLTests/g;
-$code =~ s{xt(.)author(.)test-eol\.t}{xt$1release$2eol.t}g;
+$code =~ s{xt(.)author(.)eol\.t}{xt$1release$2eol.t}g;
 
 eval $code;
 die $@ if $@;

@@ -23,7 +23,7 @@ has trailing_whitespace => (
 has filename => (
     is => 'ro', isa => 'Str',
     lazy => 1,
-    default => sub { return 'xt/author/test-eol.t' },
+    default => sub { return 'xt/author/eol.t' },
 );
 
 sub gather_files
