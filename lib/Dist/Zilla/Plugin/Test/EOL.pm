@@ -26,6 +26,17 @@ has filename => (
     default => sub { return 'xt/author/eol.t' },
 );
 
+around dump_config => sub
+{
+    my ($orig, $self) = @_;
+    my $config = $self->$orig;
+
+    $config->{+__PACKAGE__} = {
+         filename => $self->filename,
+    };
+    return $config;
+};
+
 sub gather_files
 {
     my $self = shift;

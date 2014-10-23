@@ -2,6 +2,7 @@ Revision history for {{$dist->name}}
 
 {{$NEXT}}
         - change default filename from test-eol.t to eol.t
+        - add metadata for [MetaConfig]
 
 0.13      2014-10-22 05:44:36Z
         - Dist::Zilla::Plugin::EOLTests and Dist::Zilla::Plugin::Test::EOL are
