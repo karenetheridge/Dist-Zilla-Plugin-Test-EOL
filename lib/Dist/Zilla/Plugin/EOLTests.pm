@@ -4,31 +4,28 @@ package Dist::Zilla::Plugin::EOLTests;
 # ABSTRACT: Release tests making sure correct line endings are used
 
 use Moose;
-use namespace::autoclean;
-
 extends 'Dist::Zilla::Plugin::Test::EOL';
-
-=head1 DESCRIPTION
-
-This is an extension of L<Dist::Zilla::Plugin::InlineFiles>, providing
-the following files:
-
-=for :list
-* xt/release/eol.t
-a standard Test::EOL test
-
-=attr trailing_whitespace
-
-If this option is set to a true value,
-C<< { trailing_whitespace => 1 } >> will be passed to
-L<Test::EOL/all_perl_files_ok>. It defaults to C<1>.
-
-=cut
+use namespace::autoclean;
 
 has '+filename' => (
     default => sub { return 'xt/release/eol.t' },
 );
 
 __PACKAGE__->meta->make_immutable;
-
 1;
+__END__
+
+=pod
+
+=head1 SYNOPSIS
+
+In your F<dist.ini>:
+
+    [EOLTests]
+
+=head1 DESCRIPTION
+
+This is a plugin that runs at the L<gather files|Dist::Zilla::Role::FileGatherer> stage,
+providing the file F<xt/release/eol.t>, a standard L<Test::EOL> test.
+
+=cut
