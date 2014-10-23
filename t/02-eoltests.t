@@ -6,6 +6,7 @@ use warnings FATAL => 'all';
 use Path::Tiny;
 my $code = path('t', '01-basic.t')->slurp_utf8;
 
+$code =~ s/use if \$ENV\{AUTHOR_TESTING\}, 'Test::Warnings';//;
 $code =~ s/Test::EOL(?!'\s*=>)/EOLTests/g;
 $code =~ s{xt(.)author(.)eol\.t}{xt$1release$2eol.t}g;
 
