@@ -1,6 +1,8 @@
 Revision history for {{$dist->name}}
 
 {{$NEXT}}
+
+0.14      2014-10-23 01:37:00Z
         - change default filename from test-eol.t to eol.t
         - add metadata for [MetaConfig]
         - fix missing test prerequisite
