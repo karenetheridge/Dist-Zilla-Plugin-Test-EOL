@@ -6,9 +6,25 @@ use warnings FATAL => 'all';
 use Path::Tiny;
 my $code = path('t', '01-basic.t')->slurp_utf8;
 
-$code =~ s/use if \$ENV\{AUTHOR_TESTING\}, 'Test::Warnings';//;
+my $begin_warnings = <<'END';
+my @warnings = warnings {
+END
+
+my $end_warnings = <<'END';
+};  # end warnings capture
+
+cmp_deeply(
+    \@warnings,
+    [ re(qr/^\Q!!! [EOLTests] is deprecated and may be removed in a future release; replace it with [Test::EOL] (note the different default filename)\E/) ],
+    'deprecation warning was seen',
+);
+END
+
 $code =~ s/Test::EOL(?!'\s*=>)/EOLTests/g;
 $code =~ s{xt(.)author(.)eol\.t}{xt$1release$2eol.t}g;
+
+$code =~ s/^(my \$tzil = .*\n)/$begin_warnings\n$1/m;
+$code =~ s/had_no_warnings/$end_warnings\nhad_no_warnings/;
 
 eval $code;
 die $@ if $@;

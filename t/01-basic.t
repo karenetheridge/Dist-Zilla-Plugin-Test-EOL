@@ -2,7 +2,7 @@ use strict;
 use warnings FATAL => 'all';
 
 use Test::More;
-use if $ENV{AUTHOR_TESTING}, 'Test::Warnings';
+use Test::Warnings 0.009 ':no_end_test', ':all';
 use Test::DZil;
 use Path::Tiny;
 use File::pushd 'pushd';
@@ -86,4 +86,5 @@ is($files_tested, 2, 'correct number of files were tested');
 diag 'got log messages: ', explain $tzil->log_messages
     if not Test::Builder->new->is_passing;
 
+had_no_warnings if $ENV{AUTHOR_TESTING};
 done_testing;
