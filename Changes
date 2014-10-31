@@ -1,6 +1,8 @@
 Revision history for {{$dist->name}}
 
 {{$NEXT}}
+        - use the 'deprecated' warning category to issue the warning in
+          [EOLTests]
 
 0.14      2014-10-23 01:37:00Z
         - change default filename from test-eol.t to eol.t

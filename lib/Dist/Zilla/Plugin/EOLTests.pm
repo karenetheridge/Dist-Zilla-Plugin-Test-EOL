@@ -8,7 +8,9 @@ extends 'Dist::Zilla::Plugin::Test::EOL';
 use namespace::autoclean;
 
 before register_component => sub {
-    warn "!!! [EOLTests] is deprecated and may be removed in a future release; replace it with [Test::EOL] (note the different default filename)\n";
+    warnings::warnif('deprecated',
+        "!!! [EOLTests] is deprecated and may be removed in a future release; replace it with [Test::EOL] (note the different default filename)\n",
+    );
 };
 
 has '+filename' => (
