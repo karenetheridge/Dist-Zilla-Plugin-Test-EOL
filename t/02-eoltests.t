@@ -15,7 +15,7 @@ my $end_warnings = <<'END';
 
 cmp_deeply(
     \@warnings,
-    [ re(qr/^\Q!!! [EOLTests] is deprecated and may be removed in a future release; replace it with [Test::EOL] (note the different default filename)\E/) ],
+    superbagof(re(qr/^\Q!!! [EOLTests] is deprecated and may be removed in a future release; replace it with [Test::EOL] (note the different default filename)\E/)),
     'deprecation warning was seen',
 );
 END

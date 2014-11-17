@@ -1,6 +1,8 @@
 Revision history for {{$dist->name}}
 
 {{$NEXT}}
+        - allow tests to pass even while upstream modules have warnings under
+          perl 5.21.6
 
 0.15    2014-10-31 06:09:12Z
         - use the 'deprecated' warning category to issue the warning in
