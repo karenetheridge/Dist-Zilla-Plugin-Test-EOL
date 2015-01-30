@@ -1,5 +1,5 @@
 use strict;
-use warnings FATAL => 'all';
+use warnings;
 
 # this is just like t/01-basic.t except we use [EOLTests].
 
