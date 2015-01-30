@@ -2,7 +2,6 @@ use strict;
 use warnings;
 package Dist::Zilla::Plugin::Test::EOL;
 # ABSTRACT: Author tests making sure correct line endings are used
-# SEEALSO: Test::EOL, Dist::Zilla::Plugin::EOLTests
 
 use Moose;
 use Sub::Exporter::ForMethods 'method_installer';
@@ -112,6 +111,11 @@ This module is a fork of L<Dist::Zilla::Plugin::EOLTests> and was originally
 written by Florian Ragwitz. It was forked because the Test:: namespace
 is preferred for test modules, and because I would prefer to have EOL tests
 be Author tests.
+
+=head1 SEE ALSO
+
+=for :list
+* Test::EOL
 
 =cut
 
