@@ -1,6 +1,8 @@
 use strict;
 use warnings;
 package Dist::Zilla::Plugin::Test::EOL;
+# ABSTRACT: Author tests making sure correct line endings are used
+# SEEALSO: Test::EOL, Dist::Zilla::Plugin::EOLTests
 
 use Moose;
 use Sub::Exporter::ForMethods 'method_installer';
@@ -74,21 +76,16 @@ sub register_prereqs
 }
 
 __PACKAGE__->meta->make_immutable;
-
 1;
-# ABSTRACT: Author tests making sure correct line endings are used
-# SEEALSO: Test::EOL, Dist::Zilla::Plugin::EOLTests
+
+=pod
 
 =head1 DESCRIPTION
 
 Generate an author L<Test::EOL>.
 
 This is an extension of L<Dist::Zilla::Plugin::InlineFiles>, providing
-the following files:
-
-=for :list
-* xt/author/eol.t
-a standard Test::EOL test
+the file F<xt/author/eol.t>, a standard L<Test::EOL> test.
 
 =head1 CONFIGURATION OPTIONS
 
