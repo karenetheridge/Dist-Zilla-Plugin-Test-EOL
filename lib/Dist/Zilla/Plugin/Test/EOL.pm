@@ -34,7 +34,7 @@ around dump_config => sub
     my $config = $self->$orig;
 
     $config->{+__PACKAGE__} = {
-         filename => $self->filename,
+         map { $_ => $self->$_ } qw(filename trailing_whitespace),
     };
     return $config;
 };

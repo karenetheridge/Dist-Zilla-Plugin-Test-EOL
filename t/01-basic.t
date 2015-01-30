@@ -57,6 +57,7 @@ cmp_deeply(
                     config => {
                         'Dist::Zilla::Plugin::Test::EOL' => {
                             filename => 'xt/author/eol.t',
+                            trailing_whitespace => 1,
                         },
                     },
                     name => 'Test::EOL',
