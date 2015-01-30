@@ -2,6 +2,7 @@ use strict;
 use warnings;
 package Dist::Zilla::Plugin::Test::EOL;
 # ABSTRACT: Author tests making sure correct line endings are used
+# KEYWORDS: plugin test testing author development whitespace newline linefeed formatting
 
 use Moose;
 use Sub::Exporter::ForMethods 'method_installer';
