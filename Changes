@@ -1,6 +1,8 @@
 Revision history for {{$dist->name}}
 
 {{$NEXT}}
+
+0.17    2015-01-31 08:42:33Z
         - include trailing_whitespace in config dumped into metadata
         - now includes the list of files to check inside the test, allowing
           customization of files to search via filefinder options (adds

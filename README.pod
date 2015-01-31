@@ -8,24 +8,14 @@ Dist::Zilla::Plugin::Test::EOL - Author tests making sure correct line endings a
 
 =head1 VERSION
 
-version 0.16
+version 0.17
 
 =head1 DESCRIPTION
 
 Generate an author L<Test::EOL>.
 
 This is an extension of L<Dist::Zilla::Plugin::InlineFiles>, providing
-the following files:
-
-=over 4
-
-=item *
-
-xt/author/eol.t
-
-a standard Test::EOL test
-
-=back
+the file F<xt/author/eol.t>, a standard L<Test::EOL> test.
 
 =head1 CONFIGURATION OPTIONS
 
@@ -40,11 +30,30 @@ L<Test::EOL/all_perl_files_ok>. It defaults to C<1>.
 What this option is going to do is test for the lack of trailing whitespace at
 the end of the lines (also known as "trailing space").
 
+=head2 C<finder>
+
+=for stopwords FileFinder
+
+This is the name of a L<FileFinder|Dist::Zilla::Role::FileFinder> for finding
+files to check.  The default value is C<:InstallModules>,
+C<:ExecFiles> (see also L<Dist::Zilla::Plugin::ExecDir>) and C<:TestFiles>;
+this option can be used more than once.
+
+Other predefined finders are listed in
+L<Dist::Zilla::Role::FileFinderUser/default_finders>.
+You can define your own with the
+L<[FileFinder::ByName]|Dist::Zilla::Plugin::FileFinder::ByName> plugin.
+
+=head2 C<file>
+
+a filename to also test, in addition to any files found
+earlier. This option can be repeated to specify multiple additional files.
+
 =head2 C<filename>
 
 The filename of the test to add - defaults to F<xt/author/test-eol.t>.
 
-=for Pod::Coverage gather_files register_prereqs
+=for Pod::Coverage mvp_multivalue_args mvp_aliases gather_files munge_files register_prereqs
 
 =head1 ACKNOWLEDGMENTS
 
@@ -53,45 +62,13 @@ written by Florian Ragwitz. It was forked because the Test:: namespace
 is preferred for test modules, and because I would prefer to have EOL tests
 be Author tests.
 
-=head1 BUGS
-
-Please report any bugs or feature requests on the bugtracker website
-https://rt.cpan.org/Public/Dist/Display.html?Name=Dist-Zilla-Plugin-Test-EO
-L or by email to bug-Dist-Zilla-Plugin-Test-EOL@rt.cpan.org.
-
-When submitting a bug or request, please include a test-file or a
-patch to an existing test-file that illustrates the bug or desired
-feature.
-
 =head1 SEE ALSO
 
-Please see those modules/websites for more information related to this module.
-
 =over 4
 
 =item *
 
-L<Test::EOL|Test::EOL>
-
-=item *
-
-L<Dist::Zilla::Plugin::EOLTests|Dist::Zilla::Plugin::EOLTests>
-
-=back
-
-=head1 CONTRIBUTORS
-
-=for stopwords Olivier Mengué Shlomi Fish
-
-=over 4
-
-=item *
-
-Olivier Mengué <dolmen@cpan.org>
-
-=item *
-
-Shlomi Fish <shlomif@shlomifish.org>
+Test::EOL
 
 =back
 
@@ -119,5 +96,21 @@ This software is copyright (c) 2010 by Florian Ragwitz <rafl@debian.org>.
 
 This is free software; you can redistribute it and/or modify it under
 the same terms as the Perl 5 programming language system itself.
+
+=head1 CONTRIBUTORS
+
+=for stopwords Olivier Mengué Shlomi Fish
+
+=over 4
+
+=item *
+
+Olivier Mengué <dolmen@cpan.org>
+
+=item *
+
+Shlomi Fish <shlomif@shlomifish.org>
+
+=back
 
 =cut
