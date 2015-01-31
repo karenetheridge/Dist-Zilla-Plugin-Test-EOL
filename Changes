@@ -7,6 +7,7 @@ Revision history for {{$dist->name}}
           searching of .pod by default); also works around issue with older
           Test::EOL Test::NoTabs that tests nothing when the test is two levels
           deep from the dist root (see RT#66177)
+        - add new 'file' option, for adding additional files to test
 
 0.16    2014-11-17 03:00:59Z
         - allow tests to pass even while upstream modules have warnings under

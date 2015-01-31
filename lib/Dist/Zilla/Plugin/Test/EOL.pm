@@ -36,9 +36,20 @@ has filename => (
     default => sub { return 'xt/author/eol.t' },
 );
 
+has files => (
+    isa => 'ArrayRef[Str]',
+    traits => ['Array'],
+    handles => { files => 'elements' },
+    lazy => 1,
+    default => sub { [] },
+);
+
 has _file_obj => (
     is => 'rw', isa => role_type('Dist::Zilla::Role::File'),
 );
+
+sub mvp_multivalue_args { 'files' }
+sub mvp_aliases { return { file => 'files' } }
 
 around dump_config => sub
 {
@@ -76,6 +87,7 @@ sub munge_files
     my @filenames = map { path($_->name)->relative('.')->stringify }
         grep { not ($_->can('is_bytes') and $_->is_bytes) }
         @{ $self->found_files };
+    push @filenames, $self->files;
 
     $self->log_debug('adding file ' . $_) foreach @filenames;
 
@@ -147,11 +159,16 @@ L<Dist::Zilla::Role::FileFinderUser/default_finders>.
 You can define your own with the
 L<[FileFinder::ByName]|Dist::Zilla::Plugin::FileFinder::ByName> plugin.
 
+=head2 C<file>
+
+a filename to also test, in addition to any files found
+earlier. This option can be repeated to specify multiple additional files.
+
 =head2 C<filename>
 
 The filename of the test to add - defaults to F<xt/author/test-eol.t>.
 
-=for Pod::Coverage gather_files munge_files register_prereqs
+=for Pod::Coverage mvp_multivalue_args mvp_aliases gather_files munge_files register_prereqs
 
 =head1 ACKNOWLEDGMENTS
 

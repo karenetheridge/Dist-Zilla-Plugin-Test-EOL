@@ -21,7 +21,7 @@ my $tzil = Builder->from_config(
                 [ GatherDir => ],
                 [ ExecDir => ],
                 [ 'FileFinder::ByName' => ExtraTestFiles => { dir => 'xt' } ],
-                [ 'Test::EOL' => { finder => [ ':InstallModules', ':TestFiles' ] } ],
+                [ 'Test::EOL' => { finder => [ ':InstallModules', ':TestFiles' ], file => [ 'examples/foo' ] } ],
             ),
             path(qw(source lib Foo.pm)) => <<'MODULE',
 package Foo;
@@ -46,6 +46,11 @@ use warnings;
 use Test::More tests => 1;
 pass('hi!');
 TEST
+            path(qw(source examples foo)) => <<'EXAMPLE',
+use strict;
+use warnings;
+print "hello there!\n";
+EXAMPLE
         },
     },
 );
@@ -65,6 +70,7 @@ my @files = (
     path(qw(lib Foo.pm)),
     path(qw(lib Bar.pod)),
     path(qw(t foo.t)),
+    path(qw(examples foo)),
 );
 like($content, qr/'\Q$_\E'/m, "test checks $_") foreach @files;
 
