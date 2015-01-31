@@ -2,6 +2,11 @@ Revision history for {{$dist->name}}
 
 {{$NEXT}}
         - include trailing_whitespace in config dumped into metadata
+        - now includes the list of files to check inside the test, allowing
+          customization of files to search via filefinder options (adds
+          searching of .pod by default); also works around issue with older
+          Test::EOL Test::NoTabs that tests nothing when the test is two levels
+          deep from the dist root (see RT#66177)
 
 0.16    2014-11-17 03:00:59Z
         - allow tests to pass even while upstream modules have warnings under
