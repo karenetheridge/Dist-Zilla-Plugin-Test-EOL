@@ -79,6 +79,10 @@ unlike($content, qr/'\Q$_\E'/m, "test does not check $_") foreach (
     path(qw(xt bar.t)),
 );
 
+# not needed, but Test::EOL (pre-1.5) loads it from the generated test, and $0
+# is wrong for it
+use FindBin;
+
 my $files_tested;
 
 subtest 'run the generated test' => sub
