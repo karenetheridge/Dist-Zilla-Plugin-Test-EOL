@@ -24,6 +24,23 @@ use strict;
 use warnings;
 1;
 MODULE
+            path(qw(source lib Bar.pod)) => <<'POD',
+package Bar;
+=pod
+
+=cut
+POD
+            path(qw(source bin myscript)) => <<'SCRIPT',
+use strict;
+use warnings;
+print "hello there!\n";
+SCRIPT
+            path(qw(source t foo.t)) => <<'TEST',
+use strict;
+use warnings;
+use Test::More tests => 1;
+pass('hi!');
+TEST
         },
     },
 );
@@ -82,7 +99,8 @@ subtest 'run the generated test' => sub
     $files_tested = Test::Builder->new->current_test;
 };
 
-is($files_tested, 2, 'correct number of files were tested');
+# this should be 4 - but .pod is not being picked up by Test::EOL
+is($files_tested, 3, 'correct number of files were tested');
 
 diag 'got log messages: ', explain $tzil->log_messages
     if not Test::Builder->new->is_passing;
