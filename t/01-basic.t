@@ -88,7 +88,7 @@ cmp_deeply(
                         },
                     },
                     name => 'Test::EOL',
-                    version => ignore,
+                    version => Dist::Zilla::Plugin::Test::EOL->VERSION,
                 },
             ),
         }),

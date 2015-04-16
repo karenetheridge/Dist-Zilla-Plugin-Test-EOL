@@ -7,12 +7,6 @@ use Test::DZil;
 use Path::Tiny;
 use File::pushd 'pushd';
 
-BEGIN {
-    use Dist::Zilla::Plugin::Test::EOL;
-    $Dist::Zilla::Plugin::Test::EOL::VERSION = 9999
-        unless $Dist::Zilla::Plugin::Test::EOL::VERSION;
-}
-
 my $tzil = Builder->from_config(
     { dist_root => 't/does-not-exist' },
     {

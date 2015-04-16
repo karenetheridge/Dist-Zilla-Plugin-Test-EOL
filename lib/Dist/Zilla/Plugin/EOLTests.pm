@@ -3,6 +3,8 @@ use warnings;
 package Dist::Zilla::Plugin::EOLTests;
 # ABSTRACT: (DEPRECATED) Release tests making sure correct line endings are used
 
+our $VERSION = '0.18';
+
 use Moose;
 extends 'Dist::Zilla::Plugin::Test::EOL';
 use namespace::autoclean;

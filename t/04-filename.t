@@ -7,12 +7,6 @@ use Test::DZil;
 use Path::Tiny;
 use Test::Deep;
 
-BEGIN {
-    use Dist::Zilla::Plugin::Test::EOL;
-    $Dist::Zilla::Plugin::Test::EOL::VERSION = 9999
-        unless $Dist::Zilla::Plugin::Test::EOL::VERSION;
-}
-
 my $tzil = Builder->from_config(
     { dist_root => 't/does-not-exist' },
     {
@@ -61,7 +55,7 @@ cmp_deeply(
                          },
                     },
                     name => 'Test::EOL',
-                    version => ignore,
+                    version => Dist::Zilla::Plugin::Test::EOL->VERSION,
                 },
             ),
         }),
