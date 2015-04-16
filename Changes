@@ -1,6 +1,7 @@
 Revision history for Dist-Zilla-Plugin-Test-EOL
 
 {{$NEXT}}
+        - mark Dist::Zilla::Plugin::EOLTests as deprecated in metadata
 
 0.17    2015-01-31 08:42:33Z
         - include trailing_whitespace in config dumped into metadata
