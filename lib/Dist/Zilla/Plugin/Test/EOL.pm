@@ -4,7 +4,7 @@ package Dist::Zilla::Plugin::Test::EOL;
 # ABSTRACT: Author tests making sure correct line endings are used
 # KEYWORDS: plugin test testing author development whitespace newline linefeed formatting
 
-our $VERSION = '0.18';
+our $VERSION = '0.19';
 
 use Moose;
 use Path::Tiny;

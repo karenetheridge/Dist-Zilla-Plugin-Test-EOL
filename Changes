@@ -1,5 +1,7 @@
 Revision history for Dist-Zilla-Plugin-Test-EOL
 
+{{$NEXT}}
+
 0.18    2015-04-19 08:01:06Z
         - mark Dist::Zilla::Plugin::EOLTests as deprecated in metadata
 
