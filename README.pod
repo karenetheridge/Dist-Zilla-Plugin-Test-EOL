@@ -8,7 +8,7 @@ Dist::Zilla::Plugin::Test::EOL - Author tests making sure correct line endings a
 
 =head1 VERSION
 
-version 0.17
+version 0.18
 
 =head1 DESCRIPTION
 
@@ -99,13 +99,13 @@ the same terms as the Perl 5 programming language system itself.
 
 =head1 CONTRIBUTORS
 
-=for stopwords Olivier Mengué Shlomi Fish
+=for stopwords Olivier Mengu� Shlomi Fish
 
 =over 4
 
 =item *
 
-Olivier Mengué <dolmen@cpan.org>
+Olivier Mengu� <dolmen@cpan.org>
 
 =item *
 
