@@ -99,13 +99,13 @@ the same terms as the Perl 5 programming language system itself.
 
 =head1 CONTRIBUTORS
 
-=for stopwords Olivier Mengu� Shlomi Fish
+=for stopwords Olivier Mengué Shlomi Fish
 
 =over 4
 
 =item *
 
-Olivier Mengu� <dolmen@cpan.org>
+Olivier Mengué <dolmen@cpan.org>
 
 =item *
 
