@@ -59,7 +59,9 @@ around dump_config => sub
     my $config = $self->$orig;
 
     $config->{+__PACKAGE__} = {
-         map { $_ => $self->$_ } qw(filename trailing_whitespace finder),
+        trailing_whitespace => $self->trailing_whitespace ? 1 : 0,
+        filename => $self->filename,
+        finder => [ sort @{ $self->finder } ],
     };
     return $config;
 };

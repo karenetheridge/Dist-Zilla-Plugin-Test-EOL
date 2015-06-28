@@ -84,7 +84,7 @@ cmp_deeply(
                         'Dist::Zilla::Plugin::Test::EOL' => {
                             filename => 'xt/author/eol.t',
                             trailing_whitespace => 1,
-                            finder => [ ':InstallModules', ':ExecFiles', ':TestFiles' ],
+                            finder => [ ':ExecFiles', ':InstallModules', ':TestFiles' ],
                         },
                     },
                     name => 'Test::EOL',

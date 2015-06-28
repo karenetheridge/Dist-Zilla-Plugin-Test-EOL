@@ -49,7 +49,7 @@ cmp_deeply(
                     class => 'Dist::Zilla::Plugin::Test::EOL',
                     config => {
                             'Dist::Zilla::Plugin::Test::EOL' => {
-                             finder => [ ':InstallModules', ':ExecFiles', ':TestFiles' ],
+                             finder => [ ':ExecFiles', ':InstallModules', ':TestFiles' ],
                              filename => 'xt/release/foo.t',
                              trailing_whitespace => 1,
                          },
