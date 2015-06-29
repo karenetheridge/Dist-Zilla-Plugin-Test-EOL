@@ -48,11 +48,11 @@ cmp_deeply(
                 {
                     class => 'Dist::Zilla::Plugin::Test::EOL',
                     config => {
-                            'Dist::Zilla::Plugin::Test::EOL' => {
-                             finder => [ ':ExecFiles', ':InstallModules', ':TestFiles' ],
-                             filename => 'xt/release/foo.t',
-                             trailing_whitespace => 1,
-                         },
+                        'Dist::Zilla::Plugin::Test::EOL' => {
+                            finder => [ ':ExecFiles', ':InstallModules', ':TestFiles' ],
+                            filename => 'xt/release/foo.t',
+                            trailing_whitespace => 1,
+                        },
                     },
                     name => 'Test::EOL',
                     version => Dist::Zilla::Plugin::Test::EOL->VERSION,
