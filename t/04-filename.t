@@ -29,7 +29,7 @@ my $file = $build_dir->child(qw(xt release foo.t));
 ok( -e $file, 'test created, using the custom filename');
 
 my $content = $file->slurp_utf8;
-unlike($content, qr/[^\S\n]\n/m, 'no trailing whitespace in generated test');
+unlike($content, qr/[^\S\n]\n/, 'no trailing whitespace in generated test');
 unlike($content, qr/\t/m, 'no tabs in generated test');
 
 cmp_deeply(
