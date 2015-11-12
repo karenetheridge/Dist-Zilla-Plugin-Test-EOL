@@ -26,5 +26,8 @@ $code =~ s{xt(.)author(.)eol\.t}{xt$1release$2eol.t}g;
 $code =~ s/^(my \$tzil = .*\n)/$begin_warnings\n$1/m;
 $code =~ s/had_no_warnings/$end_warnings\nhad_no_warnings/;
 
+use Dist::Zilla::Plugin::Test::EOL;
+$code =~ s/^(\s+)(finder => .*,)$/$1$2\n$1version => '$Dist::Zilla::Plugin::Test::EOL::VERSION',/m;
+
 eval $code;
 die $@ if $@;

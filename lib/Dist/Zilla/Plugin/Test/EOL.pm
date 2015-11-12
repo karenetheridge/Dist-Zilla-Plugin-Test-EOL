@@ -62,6 +62,7 @@ around dump_config => sub
         trailing_whitespace => $self->trailing_whitespace ? 1 : 0,
         filename => $self->filename,
         finder => [ sort @{ $self->finder } ],
+        blessed($self) ne __PACKAGE__ ? ( version => $VERSION ) : (),
     };
     return $config;
 };
