@@ -1,6 +1,7 @@
 use strict;
 use warnings;
 package Dist::Zilla::Plugin::Test::EOL;
+# vim: set ts=8 sts=4 sw=4 tw=115 et :
 # ABSTRACT: Author tests making sure correct line endings are used
 # KEYWORDS: plugin test testing author development whitespace newline linefeed formatting
 
