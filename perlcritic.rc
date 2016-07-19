@@ -4,3 +4,5 @@ verbose  = 9
 ## Turn these off
 [-Subroutines::RequireFinalReturn]
 [-Modules::RequireExplicitPackage]
+[-Subroutines::ProhibitCallsToUndeclaredSubs]
+[-Subroutines::ProhibitCallsToUnexportedSubs]
