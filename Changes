@@ -1,5 +1,7 @@
 Revision history for Dist-Zilla-Plugin-Test-EOL
 
+{{$NEXT}}
+
 0.19    2016-07-19 03:13:48Z
         - add missing prereq needed for testing the generated test file
 

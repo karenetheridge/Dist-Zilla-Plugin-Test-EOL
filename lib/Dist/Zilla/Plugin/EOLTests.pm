@@ -4,7 +4,7 @@ package Dist::Zilla::Plugin::EOLTests;
 # vim: set ts=8 sts=4 sw=4 tw=115 et :
 # ABSTRACT: (DEPRECATED) Release tests making sure correct line endings are used
 
-our $VERSION = '0.19';
+our $VERSION = '0.20';
 
 use Moose;
 extends 'Dist::Zilla::Plugin::Test::EOL';
