@@ -8,7 +8,7 @@ Dist::Zilla::Plugin::Test::EOL - Author tests making sure correct line endings a
 
 =head1 VERSION
 
-version 0.18
+version 0.19
 
 =head1 DESCRIPTION
 
@@ -72,6 +72,17 @@ Test::EOL
 
 =back
 
+=head1 SUPPORT
+
+Bugs may be submitted through L<the RT bug tracker|https://rt.cpan.org/Public/Dist/Display.html?Name=Dist-Zilla-Plugin-Test-EOL>
+(or L<bug-Dist-Zilla-Plugin-Test-EOL@rt.cpan.org|mailto:bug-Dist-Zilla-Plugin-Test-EOL@rt.cpan.org>).
+
+There is also a mailing list available for users of this distribution, at
+L<http://dzil.org/#mailing-list>.
+
+There is also an irc channel available for users of this distribution, at
+L<C<#distzilla> on C<irc.perl.org>|irc://irc.perl.org/#distzilla>.
+
 =head1 AUTHORS
 
 =over 4
@@ -90,13 +101,6 @@ Karen Etheridge <ether@cpan.org>
 
 =back
 
-=head1 COPYRIGHT AND LICENSE
-
-This software is copyright (c) 2010 by Florian Ragwitz <rafl@debian.org>.
-
-This is free software; you can redistribute it and/or modify it under
-the same terms as the Perl 5 programming language system itself.
-
 =head1 CONTRIBUTORS
 
 =for stopwords Olivier Mengué Shlomi Fish
@@ -112,5 +116,12 @@ Olivier Mengué <dolmen@cpan.org>
 Shlomi Fish <shlomif@shlomifish.org>
 
 =back
+
+=head1 COPYRIGHT AND LICENCE
+
+This software is copyright (c) 2010 by Florian Ragwitz <rafl@debian.org>.
+
+This is free software; you can redistribute it and/or modify it under
+the same terms as the Perl 5 programming language system itself.
 
 =cut
